@@ -1,0 +1,39 @@
+- U. Start habit setting
+- C. Hi i'm your personal assistant for optimizing your daily activities!. I'm going to ask you some questions. Tell me about your work habits.
+- U. I work from 9 AM to 5 PM during the week
+- C. When do you prefer studying? When do you usually begin and for how long?
+- U. I usually study in the weekends between 14 and 19
+- C. Tell me about your hobbies... Which and when do you have some?
+- U. I go to the gym everyday from 6 AM to 7 AM
+- C. Ok now, when do you usually have lunch?
+- U. I have dinner everyday from 7 PM to 8 PM
+- C. Do you prioritize work or studying?
+- U. I prioritize my work over studying
+- C. I think we're done!
+
+- U. Sart conversation
+- C. Hi! I'm TimeMate, how can I help you?
+- U. I want to insert soccer game on Saturday between 20 and 21
+- C. Task inserted!
+
+- U. Start conversation
+- C. Hi! I'm TimeMate, how can I help you?
+- U. I would like to hang out with my friends on Saturday evening
+- C. You already have soccer game on Saturday from 20 to 21. Do you want to go after?
+- U. Yes
+- C. Task inserted!
+
+http://localhost:5005/webhooks/rest/webhook/
+
+INPUT
+{
+    "message" : "Start habit setting"
+}
+
+OUTPUT
+[
+    {
+        "recipient_id": "default",
+        "text": "I think we're done!"
+    }
+]

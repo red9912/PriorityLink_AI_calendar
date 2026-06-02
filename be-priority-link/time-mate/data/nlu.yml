@@ -1,0 +1,411 @@
+version: "3.1"
+
+nlu:
+
+- synonym: monday,tuesday,wednesday,thursday,friday,saturday,sunday
+  examples: |
+    - everyday
+    - all week
+
+- synonym: monday,tuesday,wednesday,thursday,friday
+  examples: |
+    - week
+    - workweek
+    - weekdays
+    - weekdays
+
+- synonym: 15m
+  examples: |
+    - 15 minutes
+    - a quarter of an hour
+- synonym: 30m
+  examples: |
+    - 30 minutes
+    - half an hour
+- synonym: 45m
+  examples: |
+    - 45 minutes
+    - three-quarters of an hour
+- synonym: 1h
+  examples: |
+    - 1 hour
+    - one hour
+- synonym: 1.5h
+  examples: |
+    - 1 and a half hours
+    - ninety minutes
+- synonym: 2h
+  examples: |
+    - 2 hours
+    - two hours
+- synonym: 2.5h
+  examples: |
+    - 2 and a half hours
+- synonym: 3h
+  examples: |
+    - 3 hours
+    - three hours
+- synonym: 3.5h
+  examples: |
+    - 3 and a half hours
+- synonym: 4h
+  examples: |
+    - 4 hours
+    - four hours
+- synonym: 4.5h
+  examples: |
+    - 4 and a half hours
+- synonym: 5h
+  examples: |
+    - 5 hours
+    - five hours
+- synonym: 5.5h
+  examples: |
+    - 5 and a half hours
+- synonym: 6h
+  examples: |
+    - 6 hours
+    - six hours
+- synonym: 6.5h
+  examples: |
+    - 6 and a half hours
+- synonym: 7h
+  examples: |
+    - 7 hours
+    - seven hours
+- synonym: 7.5h
+  examples: |
+    - 7 and a half hours
+- synonym: 8h
+  examples: |
+    - 8 hours
+    - eight hours
+
+
+- synonym: saturday,sunday
+  examples: |
+    - weekend
+    - weekends
+
+- synonym: 01:00
+  examples: |
+    - 1 AM
+    - 1
+    - 1:00
+    - one o'clock
+    - 01:00 AM
+    - at 1 in the morning
+
+- synonym: 02:00
+  examples: |
+    - 2 AM
+    - 2
+    - 2:00
+    - two o'clock
+    - 02:00 AM
+    - at 2 in the morning
+
+- synonym: 03:00
+  examples: |
+    - 3 AM
+    - 3
+    - 3:00
+    - three o'clock
+    - 03:00 AM
+    - at 3 in the morning
+
+- synonym: 04:00
+  examples: |
+    - 4 AM
+    - 4
+    - 4:00
+    - four o'clock
+    - 04:00 AM
+    - at 4 in the morning
+
+- synonym: 05:00
+  examples: |
+    - 5 AM
+    - 5
+    - 5:00
+    - five o'clock
+    - 05:00 AM
+    - at 5 in the morning
+
+- synonym: 06:00
+  examples: |
+    - 6 AM
+    - 6
+    - 6:00
+    - six o'clock
+    - 06:00 AM
+    - at 6 in the morning
+
+- synonym: 07:00
+  examples: |
+    - 7 AM
+    - 7
+    - 7:00
+    - seven o'clock
+    - 07:00 AM
+    - at 7 in the morning
+
+- synonym: 08:00
+  examples: |
+    - 8 AM
+    - 8
+    - 8:00
+    - eight o'clock
+    - 08:00 AM
+    - at 8 in the morning
+
+- synonym: 09:00
+  examples: |
+    - 9 AM
+    - 9
+    - 9:00
+    - nine o'clock
+    - 09:00 AM
+    - at 9 in the morning
+
+- synonym: 10:00
+  examples: |
+    - 10 AM
+    - 10
+    - 10:00
+    - ten o'clock
+    - 10:00 AM
+    - at 10 in the morning
+
+- synonym: 11:00
+  examples: |
+    - 11 AM
+    - 11
+    - 11:00
+    - eleven o'clock
+    - 11:00 AM
+    - at 11 in the morning
+
+- synonym: 12:00
+  examples: |
+    - 12 PM
+    - 12
+    - 12:00
+    - noon
+    - midday
+    - 12:00 PM
+
+- synonym: 13:00
+  examples: |
+    - 1 PM
+    - 13
+    - 1:00 PM
+    - thirteen o'clock
+    - at 1 in the afternoon
+
+- synonym: 14:00
+  examples: |
+    - 2 PM
+    - 14
+    - 2:00 PM
+    - fourteen o'clock
+    - at 2 in the afternoon
+
+- synonym: 15:00
+  examples: |
+    - 3 PM
+    - 15
+    - 3:00 PM
+    - fifteen o'clock
+    - at 3 in the afternoon
+
+- synonym: 16:00
+  examples: |
+    - 4 PM
+    - 16
+    - 4:00 PM
+    - sixteen o'clock
+    - at 4 in the afternoon
+
+- synonym: 17:00
+  examples: |
+    - 5 PM
+    - 17
+    - 5:00 PM
+    - seventeen o'clock
+    - at 5 in the evening
+
+- synonym: 18:00
+  examples: |
+    - 6 PM
+    - 18
+    - 6:00 PM
+    - eighteen o'clock
+    - at 6 in the evening
+
+- synonym: 19:00
+  examples: |
+    - 7 PM
+    - 19
+    - 7:00 PM
+    - nineteen o'clock
+    - at 7 in the evening
+
+- synonym: 20:00
+  examples: |
+    - 8 PM
+    - 20
+    - 8:00 PM
+    - twenty o'clock
+    - at 8 in the evening
+
+- synonym: 21:00
+  examples: |
+    - 9 PM
+    - 21
+    - 9:00 PM
+    - twenty-one o'clock
+    - at 9 in the evening
+
+- synonym: 22:00
+  examples: |
+    - 10 PM
+    - 22
+    - 10:00 PM
+    - twenty-two o'clock
+    - at 10 in the evening
+
+- synonym: 23:00
+  examples: |
+    - 11 PM
+    - 23
+    - 11:00 PM
+    - twenty-three o'clock
+    - at 11 in the evening
+
+- synonym: 00:00
+  examples: |
+    - midnight
+    - 12 AM
+    - 00
+    - 12:00 AM
+    - at 12 midnight
+
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: start_habits_setting
+  examples: |
+    - Start habits setting
+
+- intent: start_conversation
+  examples: |
+    - Start conversation
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: task_description
+  examples: |
+    - I [work](task) from [9 AM](time_start) to [5 PM](time_end) during the [week](day)
+    - I usually [study](task) in the [weekends](day) between [13](time_start) and [19](time_end)
+    - I go to the [gym](task) [everyday](day) from [6 AM](time_start) to [7 AM](time_end)
+    - I have [dinner](task) [everyday](day) from [1 PM](time_start) to [2 PM](time_end)
+    - I want to insert [soccer game](task) on [Saturday](day) between [20](time_start) and [21](time_end)
+    - I would like to [hang out](task) with my friends on [Saturday](day) evening
+
+- intent: priority_setting
+  examples: |
+    - I prioritize my [work](priority1) over [studying](priority2) 
+    - My priorities are: [work](priority1), [study](priority2) and [free time](priority3)
+    - (Studying)[priority1]
+
+- intent: fallback
+  examples: |
+    - I don't understand
+    - Can you repeat that?
+    - I'm not sure what you mean

@@ -1,0 +1,33 @@
+version: "3.1"
+
+stories:
+
+- story: demo
+  steps:
+  - intent: start_habits_setting
+  - action: utter_start_setting_habits
+  - intent: task_description
+  - action: action_work_habits
+  - intent: task_description
+  - action: action_study_habits
+  - intent: task_description
+  - action: action_freetime_habits
+  - intent: task_description
+  - action: action_meals_habits
+  - intent: priority_setting
+  - action: action_priority_habits
+  - intent: start_conversation
+  - action: utter_start_conversation
+  - intent: task_description
+  - action: action_add_task
+  - intent: start_conversation
+  - action: utter_start_conversation
+  - intent: task_description
+  - action: utter_conflict_proposal
+  - intent: affirm
+  - action: action_add_task_conflict
+
+- story: fallback
+  steps:
+  - intent: fallback
+  - action: utter_default

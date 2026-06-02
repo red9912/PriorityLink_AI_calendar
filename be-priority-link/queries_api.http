@@ -1,0 +1,44 @@
+###
+GET http://localhost:3001/api/commitments HTTP/1.1
+###
+POST http://localhost:3001/api/newcommitments HTTP/1.1
+content-type: application/json
+
+[
+  {
+    "name": "Esempio 1",
+    "startDateTime": "2024-01-31T09:00:00.000Z",
+    "endDateTime": "2024-01-31T11:00:00.000Z",
+    "recurrency": "FREQ=DAILY;BYDAY=MO,TU,WE,TH,FR;UNTIL=20251203",
+    "category": "Work",
+    "userId": 1
+  },
+  {
+    "name": "Esempio 2",
+    "startDateTime": "2024-01-05T14:30:00.000Z",
+    "endDateTime": "2024-01-05T15:30:00.000Z",
+    "recurrency": "FREQ=DAILY;BYDAY=MO,WE,FR;UNTIL=20240201",
+    "category": "Free-time",
+    "userId": 1
+  },
+  {
+    "name": "Esempio 3",
+    "startDateTime": "2024-01-10T10:00:00.000Z",
+    "endDateTime": "2024-01-10T11:00:00.000Z",
+    "category": "Study",
+    "userId": 1
+  }
+]
+###
+POST http://localhost:3001/api/updatecommitment/5 HTTP/1.1
+content-type: application/json
+
+{
+  "updatedData": {
+    "name": "Nome Di Prova",
+    "category": "Categoria Di Prova"
+  }
+}
+###
+DELETE http://localhost:3001/api/deletecommitment/5
+###

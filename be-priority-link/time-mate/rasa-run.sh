@@ -1,0 +1,1 @@
+rasa run --model models\20240124-123736-muted-bounce.tar.gz --enable-api --cors "*"

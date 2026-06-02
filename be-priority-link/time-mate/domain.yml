@@ -1,0 +1,60 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - task_description
+  - start_habits_setting
+  - priority_setting
+  - start_conversation
+  - fallback
+
+actions:
+  - action_work_habits
+  - action_study_habits
+  - action_freetime_habits
+  - action_meals_habits
+  - action_priority_habits
+  - action_add_task
+  - action_add_task_conflict
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_start_setting_habits:
+  - text: "Hi i'm your personal assistant for optimizing your daily activities!. I'm going to ask you some questions. Tell me about your work habits."
+
+  utter_start_conversation:
+  - text: "Hi! I'm TimeMate, how can I help you?"
+
+  utter_conflict_proposal:
+  - text: "You already have soccer game on Saturday from 20 to 21. Do you want to go after?"
+
+  utter_default:
+  - text: "Sorry I didn't understand"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
