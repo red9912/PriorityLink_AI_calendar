@@ -1,16 +1,16 @@
 # Priority Link AI Calendar
 
-Priority Link e' un'applicazione calendario con assistente conversazionale. Il frontend React mostra un calendario, filtri per categoria e una chat con il bot "Time Mate"; il backend Node/Express espone le API sugli impegni e inoltra i messaggi a Rasa; Rasa interpreta le frasi dell'utente e crea nuovi impegni tramite le API backend.
+Priority Link is a calendar application with a conversational assistant. The React frontend displays a calendar, category filters, and a chat with the "Time Mate" bot; the Node/Express backend exposes commitment APIs and forwards chat messages to Rasa; Rasa interprets user messages and creates new commitments through the backend APIs.
 
-## Funzionalita'
+## Features
 
-- configurazione iniziale delle abitudini tramite chatbot;
-- calendario settimanale/giornaliero/mensile basato su DevExtreme Scheduler;
-- filtro degli impegni per categoria: `All`, `Work`, `Study`, `Free-time`;
-- lista degli impegni del giorno selezionato;
-- creazione di impegni tramite conversazione con Time Mate;
-- supporto a ricorrenze settimanali e mensili lato frontend;
-- API REST per lettura, creazione, modifica ed eliminazione degli impegni.
+- initial habit setup through a chatbot;
+- day/week/month calendar based on DevExtreme Scheduler;
+- commitment filtering by category: `All`, `Work`, `Study`, `Free-time`;
+- list of commitments for the selected day;
+- commitment creation through the Time Mate conversation;
+- frontend support for weekly and monthly recurrences;
+- REST APIs for reading, creating, updating, and deleting commitments.
 
 ## Stack
 
@@ -35,61 +35,61 @@ Priority Link e' un'applicazione calendario con assistente conversazionale. Il f
 
 - Rasa
 - Rasa SDK custom actions
-- canale REST su `localhost:5005`
-- action server su `localhost:5055`
+- REST channel on `localhost:5005`
+- action server on `localhost:5055`
 
-## Struttura del progetto
+## Project Structure
 
 ```text
 .
 +-- be-priority-link/
-|   +-- index.js                 # server Express e routing API
-|   +-- dao.js                   # accesso dati tramite Prisma
+|   +-- index.js                 # Express server and API routing
+|   +-- dao.js                   # data access through Prisma
 |   +-- prisma/
-|   |   +-- schema.prisma        # schema User/Commitment
-|   |   +-- migrations/          # migrazioni database
+|   |   +-- schema.prisma        # User/Commitment schema
+|   |   +-- migrations/          # database migrations
 |   +-- time-mate/
-|       +-- actions/actions.py   # custom actions Rasa
+|       +-- actions/actions.py   # Rasa custom actions
 |       +-- data/                # NLU, stories, rules
-|       +-- domain.yml           # intents, responses e actions
-|       +-- endpoints.yml        # action endpoint Rasa
-|       +-- models/              # modelli Rasa gia' addestrati
+|       +-- domain.yml           # intents, responses, and actions
+|       +-- endpoints.yml        # Rasa action endpoint
+|       +-- models/              # pre-trained Rasa models
 +-- fe-priority-link/
 |   +-- src/
-|   |   +-- API.js               # client API frontend
-|   |   +-- App.jsx              # switch tra setup iniziale e calendario
-|   |   +-- components/          # calendario, chatbot, header
-|   |   +-- pages/               # pagine applicative
+|   |   +-- API.js               # frontend API client
+|   |   +-- App.jsx              # switch between initial setup and calendar
+|   |   +-- components/          # calendar, chatbot, header
+|   |   +-- pages/               # application pages
 |   +-- vite.config.js
 +-- start-windows.bat
 +-- start-linux.sh
 +-- start-mac.sh
 ```
 
-## Prerequisiti
+## Requirements
 
-- Node.js e npm
+- Node.js and npm
 - PostgreSQL
-- Python con Rasa e Rasa SDK installati
-- Prisma CLI, gia' presente come dipendenza dev del backend
-- `nodemon` se si vuole usare lo script di avvio automatico cosi' com'e'
+- Python with Rasa and Rasa SDK installed
+- Prisma CLI, already included as a backend dev dependency
+- `nodemon` if you want to use the startup scripts as they are
 
-## Configurazione database
+## Database Configuration
 
-Il backend usa Prisma con PostgreSQL. La stringa di connessione viene letta dalla variabile d'ambiente `DB_URL`.
+The backend uses Prisma with PostgreSQL. The connection string is read from the `DB_URL` environment variable.
 
-Esempio:
+Example:
 
 ```bash
 DB_URL="postgresql://USER:PASSWORD@localhost:5432/priority_link"
 ```
 
-Lo schema Prisma definisce:
+The Prisma schema defines:
 
-- `User`: utente con nome, cognome, percorso di studio/lavoro e lista impegni;
-- `Commitment`: impegno con nome, inizio, fine, ricorrenza opzionale, categoria e riferimento all'utente.
+- `User`: a user with name, surname, study/work information, and commitments;
+- `Commitment`: a commitment with name, start time, end time, optional recurrence, category, and user reference.
 
-Applicare le migrazioni dal backend:
+Apply the migrations from the backend directory:
 
 ```bash
 cd be-priority-link
@@ -97,20 +97,20 @@ npm install
 npx prisma migrate dev
 ```
 
-Nota: le custom actions Rasa creano impegni con `userId: 1`, quindi nel database deve esistere un utente con `id = 1`.
+Note: the Rasa custom actions create commitments with `userId: 1`, so the database must contain a user with `id = 1`.
 
-## Avvio manuale
+## Manual Startup
 
-Aprire terminali separati.
+Open separate terminals.
 
-### 1. Rasa action server
+### 1. Rasa Action Server
 
 ```bash
 cd be-priority-link/time-mate
 rasa run actions
 ```
 
-### 2. Rasa server
+### 2. Rasa Server
 
 Windows:
 
@@ -126,13 +126,13 @@ cd be-priority-link/time-mate
 rasa run --model models/20240122-173845-slim-phantom.tar.gz --enable-api --cors "*"
 ```
 
-Il frontend/backend si aspettano Rasa su:
+The frontend/backend expect Rasa at:
 
 ```text
 http://localhost:5005/webhooks/rest/webhook/
 ```
 
-### 3. Backend Express
+### 3. Express Backend
 
 ```bash
 cd be-priority-link
@@ -140,13 +140,13 @@ npm install
 node index.js
 ```
 
-Il backend parte su:
+The backend starts at:
 
 ```text
 http://localhost:3001
 ```
 
-### 4. Frontend Vite
+### 4. Vite Frontend
 
 ```bash
 cd fe-priority-link
@@ -154,30 +154,30 @@ npm install
 npm run dev
 ```
 
-Il frontend Vite e' normalmente disponibile su:
+The Vite frontend is normally available at:
 
 ```text
 http://localhost:5173
 ```
 
-## Avvio tramite script
+## Startup Scripts
 
-Sono presenti script root per avviare i processi principali:
+Root-level scripts are available to start the main processes:
 
 - `start-windows.bat`
 - `start-linux.sh`
 - `start-mac.sh`
 
-Gli script avviano:
+The scripts start:
 
 - Rasa action server;
-- Rasa server con modello preaddestrato;
-- backend Node;
-- frontend Vite.
+- Rasa server with a pre-trained model;
+- Node backend;
+- Vite frontend.
 
-Nota: gli script usano `nodemon run` per il backend. Se `nodemon` non e' installato globalmente, usare `node index.js` oppure installare/configurare `nodemon`.
+Note: the scripts use `nodemon run` for the backend. If `nodemon` is not installed globally, use `node index.js` or install/configure `nodemon`.
 
-## API backend
+## Backend API
 
 Base URL:
 
@@ -187,11 +187,11 @@ http://localhost:3001
 
 ### `GET /api/commitments`
 
-Restituisce tutti gli impegni ordinati per `startDateTime` crescente.
+Returns all commitments ordered by ascending `startDateTime`.
 
 ### `POST /api/newcommitments`
 
-Crea uno o piu' impegni. Il body atteso e' un array.
+Creates one or more commitments. The expected body is an array.
 
 ```json
 [
@@ -208,12 +208,12 @@ Crea uno o piu' impegni. Il body atteso e' un array.
 
 ### `POST /api/updatecommitment/:id`
 
-Aggiorna un impegno.
+Updates a commitment.
 
 ```json
 {
   "updatedData": {
-    "name": "Nuovo nome",
+    "name": "New name",
     "category": "Study"
   }
 }
@@ -221,11 +221,11 @@ Aggiorna un impegno.
 
 ### `DELETE /api/deletecommitment/:id`
 
-Elimina un impegno.
+Deletes a commitment.
 
 ### `POST /api/sendMessage`
 
-Inoltra il messaggio al webhook REST di Rasa.
+Forwards the message to Rasa's REST webhook.
 
 ```json
 {
@@ -233,68 +233,69 @@ Inoltra il messaggio al webhook REST di Rasa.
 }
 ```
 
-## Flusso chatbot
+## Chatbot Flow
 
-Il frontend invia inizialmente:
+The frontend initially sends:
 
 ```text
 Start habit setting
 ```
 
-Rasa guida l'utente nella raccolta delle abitudini:
+Rasa guides the user through habit collection:
 
-1. lavoro;
-2. studio;
-3. tempo libero;
-4. pasti;
-5. priorita'.
+1. work;
+2. study;
+3. free time;
+4. meals;
+5. priorities.
 
-Quando Rasa risponde:
+When Rasa responds:
 
 ```text
 I think we're done!
 ```
 
-il frontend passa alla pagina calendario. Nella pagina calendario il bot viene avviato con:
+the frontend switches to the calendar page. On the calendar page, the bot starts with:
 
 ```text
 Start conversation
 ```
 
-Quando una custom action crea un nuovo task e risponde:
+When a custom action creates a new task and responds:
 
 ```text
 Task inserted!
 ```
 
-il frontend ricarica gli impegni dal backend.
+the frontend reloads commitments from the backend.
 
-## Formato impegni nel frontend
+## Frontend Commitment Format
 
-Gli impegni ricevuti dal backend vengono convertiti in oggetti compatibili con DevExtreme Scheduler:
+Commitments received from the backend are converted into DevExtreme Scheduler-compatible objects:
 
-- `category` diventa `text`;
-- `name` diventa `description`;
-- `startDateTime` diventa `startDate`;
-- `endDateTime` diventa `endDate`;
-- `category` viene mappata a `type`:
+- `category` becomes `text`;
+- `name` becomes `description`;
+- `startDateTime` becomes `startDate`;
+- `endDateTime` becomes `endDate`;
+- `category` is mapped to `type`:
   - `Work` -> `1`;
   - `Study` -> `2`;
   - `Free-time` -> `3`;
-- `recurrency` viene mappata a una RRULE se vale `WEEKLY` o `MONTHLY`.
+- `recurrency` is mapped to an RRULE when it is `WEEKLY` or `MONTHLY`.
 
-## Note operative
+## Operational Notes
 
-- Il CORS del backend consente richieste dal frontend su `http://localhost:5173`.
-- Il backend ascolta su `3001`.
-- Rasa ascolta su `5005`.
-- L'action server Rasa ascolta su `5055`.
-- Le custom actions usano date calcolate a partire dal giorno della settimana piu' vicino.
-- Le categorie riconosciute dal frontend sono `Work`, `Study` e `Free-time`.
-- Nel client frontend e' presente una funzione `createNewCommitment`, ma punta a `api/newcommitment}`; l'endpoint backend effettivo e' `api/newcommitments` e accetta un array.
+- Backend CORS allows requests from the frontend at `http://localhost:5173`.
+- The backend listens on `3001`.
+- Rasa listens on `5005`.
+- The Rasa action server listens on `5055`.
+- Custom actions calculate dates from the nearest matching weekday.
+- The categories recognized by the frontend are `Work`, `Study`, and `Free-time`.
+- The frontend client contains a `createNewCommitment` function, but it points to `api/newcommitment}`; the actual backend endpoint is `api/newcommitments` and it expects an array.
 
-## Test e file utili
+## Tests and Useful Files
 
-- `be-priority-link/queries_api.http` contiene esempi di chiamate API.
-- `be-priority-link/time-mate/tests/test_stories.yml` contiene test story Rasa di esempio.
-- `be-priority-link/time-mate/test_answers.txt` contiene esempi di conversazione e chiamata al webhook REST.
+- `be-priority-link/queries_api.http` contains sample API calls.
+- `be-priority-link/time-mate/tests/test_stories.yml` contains sample Rasa story tests.
+- `be-priority-link/time-mate/test_answers.txt` contains sample conversations and REST webhook examples.
+
